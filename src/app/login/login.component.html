@@ -1,0 +1,34 @@
+<div class="container-fluid" style="text-align: center;">
+    <!-- --------------------navbar------------------- -->
+    <h1 style="padding: 1%; background-color: black; color: white;">GitHub Application</h1><br><br><br>
+    <h5 style="color: black;"><b><u>Welcome to the GitHub Application!!!</u></b></h5>
+
+    <div class="container" style="padding-left: 23%;"><br>
+        <!-- ------------------login form---------------- -->
+        <div class="row" style="width: 30vmax; background-color: rgb(236, 242, 252);">
+            <div class="col" style="border: solid rgb(128, 107, 107);"><br>
+                <div class="form-group">
+                    <label for="userinfo"><b>Enter Username :</b></label>
+                    <input type="text" class="form-control" [(ngModel)]="userName" id="userinfo"
+                        aria-describedby="emailHelp" placeholder="Enter your GitHub username">
+                    <small class="form-text text-muted">Don't have an account? Sign Up<a href="https://github.com/">
+                            here</a>.</small>
+                </div>
+                <div class="form-group">
+                    <label for="usertoken"><b>Enter Token :</b></label>
+                    <input type="password" [(ngModel)]="userToken" class="form-control" id="usertoken"
+                        placeholder="Enter your Personal Access Token">
+                    <small class="form-text text-muted"><a href="https://github.com/settings/tokens">
+                            Generate Token</a></small>
+                </div><br>
+                <button type="submit" class="btn btn-primary" (click)="getIn()">Submit</button><br><br>
+            </div>
+        </div><br><br><br>
+    </div>
+</div>
+<!-- -------------------footer-------------------- -->
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Created By: Mohit Kataria</span>
+    </div>
+</footer>

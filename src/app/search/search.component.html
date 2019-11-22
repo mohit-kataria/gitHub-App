@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <!-- ----------------navbar---------------- -->
+    <nav class="navbar navbar-light bg-dark" style="color: whitesmoke;">
+        <a class="navbar-brand">GitHub Application</a>
+    </nav><br>
+    <button class="btn btn-primary" (click)="goBack()">Go Back</button> <br><br>
+    <div class="container">
+        <!-- ------------------------searched data---------------------- -->
+        <div class="row">
+            <div class="col">
+                <p style="font-size: 1.3em;"><b>{{totalCount}}</b> results for search '<b>{{searchResult}}</b>' :-</p>
+            </div>
+        </div>
+        <div class="row " *ngFor="let data of searchData">
+            <div class="col-sm-6 offset-sm-3" style="background-color: rgb(241, 248, 247);"><br>
+                <span> <img src={{data.avatar_url}} alt="image" style="width: 10vh; margin-left: 5%;"> <a
+                        style="padding: 4px; margin-left: 5%;" href="javascript:void(0)"
+                        (click)="viewUser(data.login)"><b>{{data.login}}</b></a> </span>
+                <hr>
+            </div>
+        </div><br>
+        <hr>
+        <div class="row justify-content-between">
+            <div class="col-sm-3">
+                <button (click)="previousPage()">Previous Page</button>
+            </div>
+            <div class="col-sm-3">
+                <button (click)='nextPage()'>NextPage</button>
+            </div>
+        </div><br><br><br><br>
+    </div>
+</div>
+<!-- ----------------footer-------------------- -->
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Created By: Mohit Kataria</span>
+    </div>
+</footer>

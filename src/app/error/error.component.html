@@ -1,0 +1,22 @@
+<div class="container-fluid" style="background-color: black;height: 100%;position: absolute;">
+    <!-- --------------------navbar----------------- -->
+    <nav class="navbar navbar-light bg-dark" style="color: whitesmoke;">
+        <a class="navbar-brand">GitHub Application</a>
+    </nav><br>
+    <div class="container" style="background-color: black;">
+        <!-- ---------------------error details----------------- -->
+        <div class="row" style="margin-top: 25vh;text-align: center;color: white;">
+            <div class="col">
+                <p style="font-size: 2rem;">Oops..!</p>
+                <p style="font-size: 2rem;">{{errorCode}}({{errorMessage}})</p><br>
+                <button class="btn btn-warning" (click)="goToProfile()">Go to Profile</button><br><br>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- --------------------footer-------------------- -->
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Created By: Mohit Kataria</span>
+    </div>
+</footer>

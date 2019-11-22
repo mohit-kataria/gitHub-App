@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <!-- -----------------navbar-------------------- -->
+    <nav class="navbar navbar-light bg-dark" style="color: whitesmoke;">
+        <a class="navbar-brand">GitHub Application</a>
+        <div class="form-inline">
+            <input #user class="form-control mr-sm-2" type="search" placeholder="Search User" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="userSearch(user.value)">Search</button>
+        </div>
+    </nav>
+    <div class="row" style="text-align: center;margin-top: 10px;font-size: medium;">
+        <div class="col-sm-4">
+            <a href="javascript:void(0)" (click)="myProfile()"><b>My Profile</b></a>
+        </div>
+        <div class="col-sm-4">
+            <a style="color: green;"><b>Logged in as : {{myName}}</b></a>
+        </div>
+        <div class="col-sm-4">
+            <a class="badge badge-dark" href="javascript:void(0)" (click)='logout()'
+                style="font-size: 1rem;"><b>Logout</b></a>
+        </div>
+    </div>
+    <hr>
+    <!-- --------------------------userdata------------------------ -->
+    <div class="row" *ngIf=currentUserData>
+        <div class="col-sm-4" style="background-color: rgb(250, 250, 250);"><br>
+            <div style="text-align: center;">
+                <img src="{{currentUserData.avatar_url}}" alt="user profile picture"
+                    style="height: 70%; width:70% ; border: solid rgb(209, 205, 205);"><br><br>
+                <h6>{{currentUserData.login}}</h6>
+                <p><small>{{currentUserData.bio}}</small></p>
+            </div><br>
+            <div style="margin-left: 6%;">
+                <h6>Name : {{currentUserData.name}}</h6>
+                <h6>Location : {{currentUserData.location}}</h6>
+                <h6>Email : {{currentUserData.email}}</h6>
+                <h6>Followers : {{currentUserData.followers}}</h6>
+                <h6>Following : {{currentUserData.following}}</h6>
+                <h6>Total public repos : {{currentUserData.public_repos}}</h6>
+                <h6>Total public gists : {{currentUserData.public_gists}}</h6>
+            </div><br>
+        </div>
+        <div class="col-sm-4" style="background-color: rgb(250, 250, 250);"><br>
+            <h5 style="text-align: center;">Public Repositories</h5>
+            <hr>
+            <div *ngIf="availableRepos==true " class="overflow-auto"
+                style="block-size: 40vh; background-color: rgb(238, 236, 235);">
+                <p style="margin: 2vw;" *ngFor='let repo of allRepos'><a href="javascript:void(0)"
+                        (click)="openRepo(repo.html_url)">
+                        <h6>{{repo.full_name}}</h6>
+                        <hr>
+                    </a></p>
+            </div><br>
+            <div *ngIf="availableRepos==false" class="overflow-auto"
+                style="block-size: 20vh; background-color: rgb(238, 236, 235);"><br>
+                <p style="text-align: center; color: red;">User doesn't have any Public Repo.</p>
+            </div><br><br>
+            <h5 style="text-align: center;">Public Gists</h5>
+            <hr>
+            <div *ngIf='availableGists==true' class="overflow-auto"
+                style="block-size: 40vh; background-color: rgb(238, 236, 235);">
+                <p style="margin: 2vw;" *ngFor='let data of gistData'><a href="javascript:void(0)"
+                        (click)="openGists(data.url)">
+                        <h6>{{data.name}}</h6>
+                        <hr>
+                    </a></p>
+            </div><br>
+            <div *ngIf='availableGists==false' class="overflow-auto"
+                style="block-size: 20vh; background-color: rgb(238, 236, 235);"><br>
+                <p style="text-align: center; color: red;">User doesn't have any Public gist.</p>
+            </div><br><br>
+        </div>
+        <div class="col-sm-4" style="background-color: rgb(250, 250, 250);"><br>
+            <h5 style="text-align: center;">Followers</h5>
+            <hr>
+            <div *ngIf="hasFollowers==true" class="overflow-auto"
+                style="block-size: 40vh; background-color: rgb(238, 236, 235);">
+                <p style="margin: 2vw;" *ngFor='let follower of allFollowers'><a href="javascript:void(0)"
+                        (click)="followerProfile(follower.html_url)">
+                        <h6>{{follower.login}}</h6>
+                        <hr>
+                    </a></p>
+            </div><br>
+            <div *ngIf="hasFollowers==false" class="overflow-auto"
+                style="block-size: 20vh; background-color: rgb(238, 236, 235);"><br>
+                <p style="text-align: center; color: red;">User doesn't have any Follower.</p>
+            </div><br><br>
+            <h5 style="text-align: center;">Following</h5>
+            <hr>
+            <div *ngIf="isFollowing==true" class="overflow-auto"
+                style="block-size: 40vh; background-color: rgb(238, 236, 235);">
+                <p style="margin: 2vw;" *ngFor='let following of allFollowing'><a href="javascript:void(0)"
+                        (click)="followingProfile(following.html_url)">
+                        <h6>{{following.login}}</h6>
+                        <hr>
+                    </a></p>
+            </div><br>
+            <div *ngIf="isFollowing==false" class="overflow-auto"
+                style="block-size: 20vh; background-color: rgb(238, 236, 235);"><br>
+                <p style="text-align: center; color: red;">User doesn't Follow anyone.</p>
+            </div><br><br>
+        </div>
+    </div>
+</div>
+<!-- -------------------------footer-------------------- -->
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Created By: Mohit Kataria</span>
+    </div>
+</footer>
