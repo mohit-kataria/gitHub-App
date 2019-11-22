@@ -73,7 +73,7 @@ export class SearchComponent implements OnInit {
 
   // function to navigate to user's profile starts...
   public viewUser: any = (data) => {
-    console.log(data)
+    //console.log(data)
     this.router.navigate(['/user', data])
   }// function to navigate to user's profile ends...
 

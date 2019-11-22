@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.userName = this.route.snapshot.paramMap.get('username')// getting username from url
-    console.log(this.userName)
+    //console.log(this.userName)
     this.checkUser();// checks for token and usernamen of the logged in user
     this.currentUser();// getting details of the user
     this.rate();// only to check the rate limit usage
@@ -67,7 +67,7 @@ export class UserComponent implements OnInit {
     this.gitService.userDetails(this.userName, this.myToken).subscribe((data: any) => {
       // console.log(data)
       this.currentUserData = data;
-      console.log(this.currentUserData.avatar_url)
+      //console.log(this.currentUserData.avatar_url)
 
       this.repositories();
       this.gists();
@@ -84,7 +84,7 @@ export class UserComponent implements OnInit {
 
   // method to nevigate to searc view with searched username...
   public userSearch: any = (data: any) => {
-    console.log(data)
+    //console.log(data)
     this.router.navigate(['/search', data])
   }
 
@@ -101,7 +101,7 @@ export class UserComponent implements OnInit {
 
   // redirects to the logged in user profile
   public myProfile: any = () => {
-    console.log('my Profile clicked')
+    //console.log('my Profile clicked')
     this.currentUser();
     this.router.navigate(['/user', this.myName])
     setTimeout(() => {
@@ -149,7 +149,7 @@ export class UserComponent implements OnInit {
       if (gistsList.length > 0) {
         this.availableGists = true;
         this.gistData = gistsList;
-        console.log(this.gistData)
+        //console.log(this.gistData)
       }
       else {
         this.availableGists = false;
@@ -195,7 +195,7 @@ export class UserComponent implements OnInit {
   // method to get the data of users followed by the selected user starts...
   public following: any = () => {
     this.gitService.following(this.userName, this.myToken).subscribe((data: { length: number; }) => {
-      console.log(data)
+      //console.log(data)
       if (data.length > 0) {
         this.isFollowing = true;
         this.allFollowing = data;

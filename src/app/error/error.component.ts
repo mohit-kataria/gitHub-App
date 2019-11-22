@@ -19,7 +19,7 @@ export class ErrorComponent implements OnInit {
 
   ngOnInit() {
     let myCode = this.route.snapshot.paramMap.get('code'); //capturing error code
-    console.log(typeof myCode)
+    //console.log(typeof myCode)
     let myMessage = this.route.snapshot.paramMap.get('message'); //capturing error message
     //debugger;
     if (this.errCodes.includes(myCode)) {

@@ -34,7 +34,6 @@ export class GitService {
 
   // request for getting the user details starts here...
   public userDetails: any = (data: any, token: any) => {
-    console.log(this.getSessionStorage())
     let myResult = this.http.get(`${this.baseUrl}/users/${data}?access_token=${token}`);
     return myResult;
   }// request for getting the user details ends here...
